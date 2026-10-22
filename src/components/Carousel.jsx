@@ -1,5 +1,6 @@
 import { Carousel } from "react-bootstrap";
 import "./Carousel.css";
+import { Link } from "react-router-dom";
 
 const slides = [
   {
@@ -39,6 +40,9 @@ function CarouselComponent() {
                     <Carousel.Caption className="shop-carousel__caption">
                         <h2>{slide.title}</h2>
                         <p>{slide.description}</p>
+                        <Link className="shop-carousel__link" to="/produtos">
+                          Ver produtos
+                        </Link>
                     </Carousel.Caption>
                 </Carousel.Item>
             ))}
