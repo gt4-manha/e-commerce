@@ -2,6 +2,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCartPlus } from '@fortawesome/free-solid-svg-icons'
 import PropTypes from 'prop-types'
 import './ProductItem.css'
+import useCart from '../context/useCart'
 
 const currency = new Intl.NumberFormat('pt-BR', {
   style: 'currency',
@@ -9,6 +10,7 @@ const currency = new Intl.NumberFormat('pt-BR', {
 })
 
 export default function ProductItem({ product }) {
+  const { addItem } = useCart();
 
   return (
     <article className="product-card">
@@ -21,6 +23,7 @@ export default function ProductItem({ product }) {
           <button
             type="button"
             aria-label={`Adicionar ${product.name} ao carrinho`}
+            onClick={() => addItem(product)}
           >
             <FontAwesomeIcon icon={faCartPlus} aria-hidden="true" />
           </button>

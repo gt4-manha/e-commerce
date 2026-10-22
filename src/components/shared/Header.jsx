@@ -2,8 +2,10 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCartShopping, faUser } from '@fortawesome/free-solid-svg-icons'
 import { Link } from 'react-router-dom'
 import './Header.css'
+import useCart from '../../context/useCart'
 
 export default function Header() {
+  const { itemCount } = useCart;
 
   return (
     <header className="site-header">
@@ -20,6 +22,7 @@ export default function Header() {
           >
             <FontAwesomeIcon icon={faCartShopping} aria-hidden="true" />
             <span>Carrinho</span>
+            {itemCount > 0 && <b className='site-header__cart-count'> {itemCount} </b>}
           </Link>
         </nav>
       </div>

@@ -4,21 +4,25 @@ import Footer from "./components/shared/Footer"
 import Home from "./pages/Home"
 import ProductList from "./pages/ProductList"
 import Cart from "./pages/Cart"
+import CartContext from "./context/CartContext"
+import CartProvider from "./context/CartProvider"
 
 function App() {
   return (
-    <BrowserRouter>
-      <Header/>
+    <CartProvider>
+      <BrowserRouter>
+        <Header />
         <main>
           <Routes>
-            <Route path="/" element={<Home/>}/>
-            <Route path="/produtos" element={<ProductList/>}/>
-            <Route path="/login" element={<p>login</p>}/>
-            <Route path="/carrinho" element={<Cart/>}/>
+            <Route path="/" element={<Home />} />
+            <Route path="/produtos" element={<ProductList />} />
+            <Route path="/login" element={<p>login</p>} />
+            <Route path="/carrinho" element={<Cart />} />
           </Routes>
         </main>
-      <Footer/>
-    </BrowserRouter>
+        <Footer />
+      </BrowserRouter>
+    </CartProvider>
   )
 }
 
